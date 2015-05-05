@@ -1,0 +1,27 @@
+artigos:
+    name: Artigos
+    singular_name: Artigo
+    fields:
+        titulo:
+            label: Título do artigo
+            type: text
+            class: large
+            postfix: "<p><em>O título deve conter também o código do artigo.</em></p>"
+        slug:
+            type: slug
+            uses: titulo
+        autores:
+            label: Nomes dos Autores
+            type: text
+            postfix: "<p><em>Digite os nomes de todos os autores deste artigo neste campo.</em></p>"
+        palavras-chave:
+            label: Palavras-chave deste artigo
+            type: text
+            postfix: "<p><em>Digite todas as palavras-chave deste artigo neste campo.</em></p>"
+        resumo:
+            type: textarea
+        arquivo:
+            label: Arquivo em PDF do artigo completo
+            type: file
+            postfix: "<p><em>É importante que o arquivo esteja em PDF, apesar de ser possível enviar arquivos em <strong>.doc, .docx</strong>, etc.</em></p>"
+    recordsperpage: 100
