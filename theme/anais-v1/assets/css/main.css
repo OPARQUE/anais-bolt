@@ -1,0 +1,195 @@
+@import url(http://fonts.googleapis.com/css?family=Abel);
+.azul {
+  color: #00547d;
+}
+.card1 {
+  background-color: #0076b0;
+}
+.card2 {
+  background-color: #0087ca;
+}
+.card3 {
+  background-color: #0099e3;
+}
+.card4 {
+  background-color: #00aafd;
+}
+.card5 {
+  background-color: #17b3ff;
+}
+.bg1,
+.bg2,
+.bg3,
+.bg4,
+.bg5 {
+  min-height: 300px;
+}
+.bg1 {
+  background-color: #0076b0;
+  color: #ffffff;
+}
+.bg2 {
+  background-color: #0087ca;
+  color: #ffffff;
+}
+.bg3 {
+  background-color: #0099e3;
+  color: #ffffff;
+}
+.bg4 {
+  background-color: #00aafd;
+  color: #ffffff;
+}
+.bg5 {
+  background-color: #17b3ff;
+  color: #ffffff;
+}
+body {
+  font-family: 'Abel', sans-serif;
+  font-size: 16px;
+  color: #000;
+  background-color: #e6e6e6;
+}
+a,
+a:hover,
+a:active,
+a:focus,
+a:visited {
+  text-decoration: none;
+}
+header {
+  margin-bottom: 30px;
+}
+.logo {
+  padding: 30px;
+  position: relative;
+}
+.desc-logo {
+  margin-top: 90px;
+  padding-bottom: 15px;
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .desc-logo {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 767px) {
+  .desc-logo {
+    margin-top: 0;
+    text-align: center;
+  }
+}
+.bg-topo {
+  color: #ffffff;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+footer {
+  background-color: #ffffff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 30px;
+}
+.regua-logos {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.search {
+  background-color: #00547d;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border: 1px solid #00547d;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  margin-bottom: -6px;
+}
+.search input,
+.search button {
+  border-color: #00547d;
+}
+.search a {
+  color: #ffffff;
+}
+.search a:hover {
+  text-decoration: none;
+  color: #4ac4ff;
+}
+.temas {
+  margin-bottom: 30px;
+}
+.temas a {
+  color: #ffffff;
+}
+.temas a:hover,
+.temas a:focus,
+.temas a:hover,
+.temas a:active {
+  text-decoration: none;
+  color: #cccccc;
+}
+.card-tema:hover {
+  background-color: #00324a;
+}
+.card-chamada-tema {
+  background-color: #00547d;
+  height: 300px;
+  color: #ffffff;
+}
+.descricao-evento {
+  padding-bottom: 30px;
+}
+.link-site-evento {
+  padding-top: 60px;
+}
+.divider-anais {
+  height: 2px;
+  width: 100%;
+  background-color: #0076b0;
+  margin-bottom: 15px;
+}
+.breadcrumb-anais {
+  font-size: 22px;
+  color: #00547d;
+}
+.breadcrumb-anais .container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #808080;
+  color: #ffffff;
+}
+.breadcrumb-anais a {
+  font-size: 22px;
+  color: #ffffff;
+}
+.breadcrumb-anais a:hover {
+  color: #000000;
+}
+.listing {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.card-artigo {
+  padding-top: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #808080;
+}
+.card-artigo h2 {
+  margin-top: 0;
+}
+.link-baixar-artigo {
+  margin-top: 30px;
+  font-size: 18px;
+}
+.pre-titulo {
+  font-size: 12px;
+  font-weight: bold;
+  color: #00547d;
+}
+.olho-desc-home {
+  padding-bottom: 30px;
+}
+.banner-ic {
+  padding-right: 0;
+}
+/*# sourceMappingURL=main.css.map */

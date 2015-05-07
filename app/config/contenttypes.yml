@@ -6,6 +6,7 @@ artigos:
             label: Título do artigo
             type: text
             class: large
+            required: true
             postfix: "<p><em>O título deve conter também o código do artigo.</em></p>"
         slug:
             type: slug
@@ -13,15 +14,137 @@ artigos:
         autores:
             label: Nomes dos Autores
             type: text
+            required: true
             postfix: "<p><em>Digite os nomes de todos os autores deste artigo neste campo.</em></p>"
         palavras-chave:
             label: Palavras-chave deste artigo
             type: text
+            required: true
             postfix: "<p><em>Digite todas as palavras-chave deste artigo neste campo.</em></p>"
         resumo:
             type: textarea
+            required: true
         arquivo:
             label: Arquivo em PDF do artigo completo
             type: file
+            required: true
             postfix: "<p><em>É importante que o arquivo esteja em PDF, apesar de ser possível enviar arquivos em <strong>.doc, .docx</strong>, etc.</em></p>"
-    recordsperpage: 100
+    relations:
+        temas:
+            multiple: false
+            label: Selecione o Tema deste artigo
+            format: "{{ item.sigla }} - {{ item.title|escape }}"
+            order: id
+    record_template: artigo.twig
+    listing_template: listing_artigo.twig
+    listing_records: 10
+    default_status: publish
+    recordsperpage: 20
+            
+temas:
+    name: Temas
+    singular_name: Tema
+    fields:
+        titulo:
+            label: Título do Tema
+            type: text
+            class: large
+            required: true
+            postfix: "<p><em>Título do tema, sem a sigla</em></p>"
+        slug:
+            type: slug
+            uses: sigla
+        sigla:
+            type: text
+            required: true
+            postfix: "<p><em>Apenas a sigla do tema</em></p>"
+    listing_records: 10
+    default_status: publish
+    searchable: false
+    recordsperpage: 5
+    
+ics:
+    name: Artigos IC
+    singular_name: Artigo IC
+    fields:
+        titulo:
+            label: Título do artigo
+            type: text
+            class: large
+            required: true
+            postfix: "<p><em>O título deve conter também o código do artigo.</em></p>"
+        slug:
+            type: slug
+            uses: titulo
+        autores:
+            label: Nomes dos Autores
+            type: text
+            required: true
+            postfix: "<p><em>Digite os nomes de todos os autores deste artigo neste campo.</em></p>"
+        palavras-chave:
+            label: Palavras-chave deste artigo
+            type: text
+            required: true
+            postfix: "<p><em>Digite todas as palavras-chave deste artigo neste campo.</em></p>"
+        resumo:
+            type: textarea
+            required: true
+    recordsperpage: 5
+    default_status: publish
+    
+config:
+    name: Definições Gerais
+    singular_name: Configuração
+    fields:
+        titulo:
+            label: Título da Configuração
+            type: text
+            class: large
+            required: true
+        slug:
+            type: slug
+            uses: titulo
+        resumo:
+            type: textarea
+            label: Resumo no topo do site
+            required: true
+            group: Textos
+        titulo-sobre:
+            type: text
+            label: Título do texto sobre o evento
+            required: true
+            group: Textos
+        texto-sobre:
+            type: html
+            label: Texto sobre o evento
+            required: true
+            group: Textos
+        link-evento:
+            type: text
+            label: Link do botão para o site do evento
+            required: true
+            group: Textos
+        logo:
+            type: image
+            label: Logo principal
+            required: true
+            group: Imagens
+        logo-texto:
+            type: image
+            label: Imagem a direita da imagem no topo
+            required: true
+            group: Imagens
+        bg-topo:
+            type: image
+            label: Imagem de fundo do topo do site
+            required: true
+            group: Imagens
+        banner-ic:
+            type: image
+            label: Banner dos trabalhos de Iniciação Científica
+            required: true
+            group: Imagens
+    show_on_dashboard: false
+    searchable: false
+    viewless: true
+    recordsperpage: 5

@@ -1,0 +1,215 @@
+@import url(http://fonts.googleapis.com/css?family=Abel);
+
+@azul: #00547d;
+@branco: #fff;
+@preto: #000;
+
+.azul {
+    color:@azul;
+}
+
+@cor1: lighten(@azul, 10%);
+@cor2: lighten(@azul, 15%);
+@cor3: lighten(@azul, 20%);
+@cor4: lighten(@azul, 25%);
+@cor5: lighten(@azul, 30%);
+
+.card1 { background-color: @cor1; }
+.card2 { background-color: @cor2; }
+.card3 { background-color: @cor3; }
+.card4 { background-color: @cor4; }
+.card5 { background-color: @cor5; }
+
+@font: 'Abel', sans-serif;
+
+.bg1, .bg2, .bg3, .bg4, .bg5 {
+    min-height:@height;
+}
+.bg1{
+    background-color: @cor1;
+    color:@branco;
+}
+.bg2{
+    background-color: @cor2;
+    color:@branco;
+}
+.bg3{
+    background-color: @cor3;
+    color:@branco;
+}
+.bg4{
+    background-color: @cor4;
+    color:@branco;
+}
+.bg5{
+    background-color: @cor5;
+    color:@branco;
+}
+
+@gutter: 30px;
+@height: 300px;
+
+.borda_arredondada(@raio: 5px){
+    -moz-border-radius:@raio;
+    -webkit-border-radius:@raio;
+    border-radius:@raio;
+}
+
+//RESETS
+body {
+    font-family: @font;
+    font-size: 16px;
+    color:#000;
+    background-color:lighten(@preto, 90%);
+}
+a, a:hover, a:active, a:focus, a:visited {
+    text-decoration: none;
+}
+header {
+    margin-bottom: @gutter;
+}
+
+.logo {
+    padding:@gutter;
+    position:relative;
+}
+.desc-logo {
+    margin-top:@gutter * 3;
+    padding-bottom: @gutter / 2;
+    @media (max-width: 991px) and (min-width: 768px) {
+        margin-top:@gutter * 2;
+    }
+    @media (max-width: 767px){
+        margin-top: 0;
+        text-align:center;
+    }
+}
+.bg-topo {
+    color:@branco;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+footer {
+    background-color: @branco;
+    padding-top:@gutter;
+    padding-bottom:@gutter;
+    margin-top: @gutter;
+}
+.regua-logos {
+    padding-top:@gutter / 2;
+    padding-bottom:@gutter / 2;
+}
+.search {
+    @raio-border-search:6px;
+
+    background-color: @azul;
+    padding-top: @gutter;
+    padding-bottom: @gutter;
+    border:1px solid @azul;
+    .borda_arredondada(@raio-border-search);
+    margin-bottom:-@raio-border-search;
+
+    input, button {
+        border-color:@azul;
+    }
+
+    a {
+        color:@branco;
+        &:hover {
+            text-decoration: none;
+            color:lighten(@azul, 40%);
+        }
+    }
+}
+
+.temas {
+    margin-bottom:@gutter;
+    a {
+        color:@branco;
+        &:hover, &:focus, &:hover, &:active {
+            text-decoration: none;
+            color:darken(@branco, 20%);
+        }
+    }
+}
+.card-tema {
+    &:hover {
+        background-color: darken(@azul, 10%);
+    }
+}
+.card-chamada-tema {
+    background-color:@azul;
+    height:@height;
+    color:@branco;
+}
+
+.descricao-evento {
+    padding-bottom:@gutter;
+    //border-bottom:1px solid @azul;
+}
+
+.link-site-evento{
+    padding-top: @gutter * 2;
+}
+.divider-anais {
+    height:2px;
+    width: 100%;
+    background-color: lighten(@azul, 10%);
+    margin-bottom: @gutter / 2;
+}
+
+//Breadcumbs
+.breadcrumb-anais {
+    font-size: 22px;
+    color:@azul;
+    .container {
+        padding-top: @gutter;
+        padding-bottom: @gutter;
+        border-bottom: 1px solid darken(@branco, 50%);
+        color:@branco;
+    }
+    a {
+        font-size: 22px;
+        color:@branco;
+        &:hover {
+            color:darken(@azul, 40%);
+        }
+    }
+}
+
+//Listing
+.listing {
+    padding-top: @gutter;
+    padding-bottom: @gutter;
+}
+.card-artigo {
+    padding-top: @gutter;
+    padding-bottom: @gutter / 2;
+    border-bottom: 1px dashed darken(@branco, 50%);
+    h2 {
+        margin-top:0;
+    }
+}
+.corpo-artigo {
+    //font-size: 14px;
+}
+.autores-artigo {
+    //color:lighten(@preto, 50%);
+}
+.link-baixar-artigo {
+    margin-top:@gutter;
+    font-size: 18px;
+}
+.pre-titulo {
+    font-size: 12px;
+    font-weight: bold;
+    color:@azul;
+}
+
+.olho-desc-home {
+    padding-bottom: @gutter;
+}
+
+.banner-ic {
+    padding-right: 0;
+}
