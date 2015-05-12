@@ -90,8 +90,8 @@ taxonomy_sort: DESC
 # and your changes do not show up on the website, be sure to check for a
 # config.yml file in your theme's folder. If a template is set there, it will
 # override the setting here.
-search_results_template: listing.twig
-search_results_records: 10
+search_results_template: listing-search.twig
+search_results_records: 1
 
 # Add jQuery to the rendered HTML, whether or not it's added by an extension.
 add_jquery: false

@@ -1,2 +1,68 @@
 {% include 'partials/_header.twig' %}
+{% setcontent config = 'config/1' %}
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12 olho-desc-home">
+            <h3>{{config.resumo}}</h3>
+        </div>
+    </div>
+        
+    {% include 'partials/_search.twig' with { 'content': 'artigos' } %}
+
+    <div class="row temas">
+        <div class="col-md-2 col-sm-4 col-xs-6 card-chamada-tema">
+            <h2>TEMAS <span class="fa fa-arrow-circle-right" style="color:#ccc;"></span></h2>
+            <hr>
+            <h4>Escolha um tema ao lado para listar os trabalhos relacionados</h4>
+        </div>
+
+        {% setcontent temas = 'temas' %}
+
+        {% for item in temas %}
+            <div class="col-md-2 col-sm-4 col-xs-6 card-tema bg1">
+                <h3>
+                    <a href="{{ item.link }}">
+                        <strong>{{ item.sigla|upper }}</strong>
+                    </a>
+                </h3>
+                <hr>
+                <h5>{{ item.relation.artigos|length }} trabalhos</h5>
+                <h3>
+                    <a href="{{ item.link }}">
+                        {{ item.titulo }}
+                    </a>
+                </h3>
+            </div>
+        {% endfor %}
+        
+    </div>
+
+    <div class="row descricao-evento">
+        <div class="col-md-6">
+            <h2>{{config.titulo_sobre}}</h2>
+            {{config.texto_sobre}}
+            <a href="{{config.link_evento}}" target="_blank" class="btn btn-primary btn-lg">Ir para o site do evento</a>
+        </div>
+        <div class="col-md-6 banner-ic">
+            <a href="{{paths.rooturl}}ics">
+                <img src="{{image(config.banner_ic)}}" class="img-responsive" />
+            </a>
+        </div>
+    </div>
+    <div class="row link-ic">
+        <div class="col-xs-12">
+            <div class="divider-anais"></div>
+        </div>
+        <div class="col-xs-12 hidden">
+            <h3>
+                <a href="{{paths.rooturl}}ics">
+                    Conheça os artigos de INICIAÇÃO CIENTÍFICA - IC
+                </a>
+            </h3>
+        </div>
+    </div>
+
+</div>
+
 {% include 'partials/_footer.twig' %}

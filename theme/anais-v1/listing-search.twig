@@ -1,0 +1,74 @@
+{% include 'partials/_header.twig' %}
+{% set content = app.request.attributes.get('_route_params').content %}
+<div class="container">
+    {% include 'partials/_search.twig' with { 'content': content } %}
+</div>
+
+<div class="breadcrumb-anais">
+    <div class="container card1">
+        <div class="row">
+            {% setcontent resultados = content ~ '/search' where { filter: search } allowpaging limit 10 %}
+            <div class="col-xs-12">
+                TERMOS DA BUSCA
+                <span class="fa fa-angle-right"></span>
+                {{ search }}<br>
+                <span class="small">Total de artigos encontrados: {{ resultados|length }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="listing">
+    <div class="container">
+        <div class="row">
+            
+            {% if resultados|length < 1 %}
+                <div class="col-xs-12">
+                    <div class="card-artigo">
+                        <h2>Sua busca não retornou resultados</h2>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% for record in resultados %}
+                <div class="col-xs-12">
+                    <div class="card-artigo">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2 class="azul">{{ record.titulo }}</h2>
+                                <div class="autores-artigo">
+                                    <span class="pre-titulo">AUTORES:</span><br>
+                                    {{ record.autores }}
+                                </div>
+                                <div class="palavras-chave-artigo">
+                                    <span class="pre-titulo">PALAVRAS-CHAVE:</span><br>
+                                    {{ record.palavras_chave }}
+                                </div>
+                                {% if record.arquivo is not empty %}
+                                    <a href="{{paths.files}}{{record.arquivo}}" class="btn btn-primary btn-lg link-baixar-artigo" download>
+                                        <span class="fa fa-download"></span> baixar artigo
+                                    </a>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <div class="corpo-artigo">
+                                    <span class="pre-titulo">RESUMO:</span>
+                                    <p>
+                                        {{record.resumo}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="col-xs-12">
+                {{ pager('resultados') }}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% include 'partials/_footer.twig' %}

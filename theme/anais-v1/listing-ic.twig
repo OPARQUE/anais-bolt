@@ -1,0 +1,60 @@
+{% include 'partials/_header.twig' %}
+<div class="container">
+    {% include 'partials/_search.twig' with { 'content': 'ics' } %}
+</div>
+
+<div class="breadcrumb-anais">
+    <div class="container card1">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="{{paths.rooturl}}">
+                    HOME
+                </a>
+                <span class="fa fa-angle-right"></span>
+                <strong>IC</strong> <span class="small">TRABALHOS DE INICIAÇÃO CIENTÍFICA</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="listing">
+    <div class="container">
+        <div class="row">
+
+            {% for item in records %}
+                <div class="col-xs-12">
+                    <div class="card-artigo">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2 class="azul">{{item.titulo}}</h2>
+                                <div class="autores-artigo">
+                                    <span class="pre-titulo">AUTORES:</span><br>
+                                    {{item.autores}}
+                                </div>
+                                <div class="palavras-chave-artigo">
+                                    <span class="pre-titulo">PALAVRAS-CHAVE:</span><br>
+                                    {{item.palavras_chave}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="corpo-artigo">
+                                    <span class="pre-titulo">RESUMO:</span>
+                                    <p>
+                                        {{item.resumo}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            
+            <div class="col-xs-12">
+                {{pager('artigos')}}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% include 'partials/_footer.twig' %}

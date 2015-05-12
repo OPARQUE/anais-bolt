@@ -34,12 +34,12 @@ artigos:
             multiple: false
             label: Selecione o Tema deste artigo
             format: "{{ item.sigla }} - {{ item.title|escape }}"
-            order: id
-    record_template: artigo.twig
-    listing_template: listing_artigo.twig
+            order: -id
+    listing_template: listing.twig
     listing_records: 10
     default_status: publish
-    recordsperpage: 20
+    sort: datepublish
+    recordsperpage: 10
             
 temas:
     name: Temas
@@ -60,6 +60,9 @@ temas:
             postfix: "<p><em>Apenas a sigla do tema</em></p>"
     listing_records: 10
     default_status: publish
+    record_template: listing.twig
+    listing_template: index.twig
+    listing_records: 10
     searchable: false
     recordsperpage: 5
     
@@ -89,8 +92,11 @@ ics:
         resumo:
             type: textarea
             required: true
-    recordsperpage: 5
+    listing_template: listing-ic.twig
+    listing_records: 10
     default_status: publish
+    sort: datepublish
+    recordsperpage: 20
     
 config:
     name: Definições Gerais
