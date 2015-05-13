@@ -39,27 +39,24 @@
     </div>
 
     <div class="row descricao-evento">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <h2>{{config.titulo_sobre}}</h2>
             {{config.texto_sobre}}
             <a href="{{config.link_evento}}" target="_blank" class="btn btn-primary btn-lg">Ir para o site do evento</a>
         </div>
-        <div class="col-md-6 banner-ic">
+        <div class="col-md-4 banner-ic">
+            <div class="link-ics">
+                <h2>
+                    <a href="{{paths.rooturl}}ics">
+                        Artigos de<br>
+                        INICIAÇÃO CIENTÍFICA<br>
+                        <span class="small">confira</span>
+                    </a>
+                </h2>
+            </div>
             <a href="{{paths.rooturl}}ics">
                 <img src="{{image(config.banner_ic)}}" class="img-responsive" />
             </a>
-        </div>
-    </div>
-    <div class="row link-ic">
-        <div class="col-xs-12">
-            <div class="divider-anais"></div>
-        </div>
-        <div class="col-xs-12 hidden">
-            <h3>
-                <a href="{{paths.rooturl}}ics">
-                    Conheça os artigos de INICIAÇÃO CIENTÍFICA - IC
-                </a>
-            </h3>
         </div>
     </div>
 
