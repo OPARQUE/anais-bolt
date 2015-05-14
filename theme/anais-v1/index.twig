@@ -27,7 +27,7 @@
                     </a>
                 </h3>
                 <hr>
-                <h5>{{ item.relation.artigos|length }} trabalhos</h5>
+                <h5>{{ item.related('artigos')|length }} trabalhos</h5>
                 <h3>
                     <a href="{{ item.link }}">
                         {{ item.titulo }}
