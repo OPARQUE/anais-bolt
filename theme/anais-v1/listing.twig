@@ -18,7 +18,7 @@
                 <div class="col-xs-1 menu-temas">
                     {% if item|current %}
                         <strong><u>{{ item.sigla|upper }}</u></strong>
-                    {% else %}
+                            {% else %}
                         <a href="{{ item.link }}">
                             {{ item.sigla|upper }}
                         </a>
@@ -35,52 +35,21 @@
             {% set ids = record.relation.artigos|join(" || ") %}
             {% setcontent artigos = "artigos" where { id: ids } allowpaging limit 10 %}
 
-            {% if artigos|length > 1 %}
-                {% for item in artigos %}
-                    <div class="col-xs-12">
-                        <div class="card-artigo">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h2 class="azul">{{item.titulo}}</h2>
-                                    <div class="autores-artigo">
-                                        <span class="pre-titulo">AUTORES:</span><br>
-                                        {{item.autores}}
-                                    </div>
-                                    <div class="palavras-chave-artigo">
-                                        <span class="pre-titulo">PALAVRAS-CHAVE:</span><br>
-                                        {{item.palavras_chave}}
-                                    </div>
-                                    <a href="{{paths.files}}{{item.arquivo}}" class="btn btn-primary btn-lg link-baixar-artigo" download>
-                                        <span class="fa fa-download"></span> baixar artigo
-                                    </a>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="corpo-artigo">
-                                        <span class="pre-titulo">RESUMO:</span>
-                                        <p>
-                                            {{item.resumo}}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            {% else %}
+            {% for item in artigos %}
                 <div class="col-xs-12">
                     <div class="card-artigo">
                         <div class="row">
                             <div class="col-md-6">
-                                <h2 class="azul">{{artigos.titulo}}</h2>
+                                <h2 class="azul">{{item.titulo}}</h2>
                                 <div class="autores-artigo">
                                     <span class="pre-titulo">AUTORES:</span><br>
-                                    {{artigos.autores}}
+                                    {{item.autores}}
                                 </div>
                                 <div class="palavras-chave-artigo">
                                     <span class="pre-titulo">PALAVRAS-CHAVE:</span><br>
-                                    {{artigos.palavras_chave}}
+                                    {{item.palavras_chave}}
                                 </div>
-                                <a href="{{paths.files}}{{artigos.arquivo}}" class="btn btn-primary btn-lg link-baixar-artigo" download>
+                                <a href="{{paths.files}}{{item.arquivo}}" class="btn btn-primary btn-lg link-baixar-artigo" download>
                                     <span class="fa fa-download"></span> baixar artigo
                                 </a>
                             </div>
@@ -88,14 +57,14 @@
                                 <div class="corpo-artigo">
                                     <span class="pre-titulo">RESUMO:</span>
                                     <p>
-                                        {{artigos.resumo}}
+                                        {{item.resumo}}
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            {% endif %}
+            {% endfor %}
 
             <div class="col-xs-12">
                 {{pager('artigos')}}
