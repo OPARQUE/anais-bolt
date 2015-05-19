@@ -1,0 +1,72 @@
+{% include 'partials/_header.twig' %}
+<div class="container">
+    {% include 'partials/_search.twig' with { 'content': 'artigos' } %}
+</div>
+
+<div class="breadcrumb-anais">
+    <div class="container card1">
+        <div class="row">
+            <div class="col-xs-7">
+                <a href="{{paths.rooturl}}">
+                    HOME
+                </a>
+                <span class="fa fa-angle-right"></span>
+                <strong>{{record.sigla|upper}}</strong> <span class="small">ARTIGO</span>
+            </div>
+            {% setcontent temas = 'temas' %}
+            {% for item in temas %}
+                <div class="col-xs-1 menu-temas">
+                    {% if item|current %}
+                        <strong><u>{{ item.sigla|upper }}</u></strong>
+                            {% else %}
+                        <a href="{{ item.link }}">
+                            {{ item.sigla|upper }}
+                        </a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="listing">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card-artigo">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2 class="azul">
+                                {{record.titulo}}
+                            </h2>
+                            <div class="autores-artigo">
+                                <span class="pre-titulo">AUTORES:</span><br>
+                                {{record.autores}}
+                            </div>
+                            <div class="palavras-chave-artigo">
+                                <span class="pre-titulo">PALAVRAS-CHAVE:</span><br>
+                                {{record.palavras_chave}}
+                            </div>
+                            {% if record.arquivo is not empty %}
+                                <a href="{{paths.files}}{{record.arquivo}}" class="btn btn-primary btn-lg link-baixar-artigo" download>
+                                    <span class="fa fa-download"></span> baixar artigo
+                                </a>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6">
+                            <div class="corpo-artigo">
+                                <span class="pre-titulo">RESUMO:</span>
+                                <p>
+                                    {{record.resumo}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% include 'partials/_footer.twig' %}

@@ -35,7 +35,7 @@ artigos:
             label: Selecione o Tema deste artigo
             format: "{{ item.sigla }} - {{ item.title|escape }}"
             order: -id
-    record_template: listing.twig
+    record_template: record.twig
     listing_template: listing.twig
     listing_records: 10
     default_status: publish
@@ -93,6 +93,7 @@ ics:
         resumo:
             type: textarea
             required: true
+    record_template: record.twig
     listing_template: listing-ic.twig
     listing_records: 10
     default_status: publish
