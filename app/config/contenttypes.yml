@@ -39,7 +39,7 @@ artigos:
     listing_template: listing.twig
     listing_records: 10
     default_status: publish
-    sort: datepublish
+    sort: titulo
     recordsperpage: 10
             
 temas:
@@ -97,7 +97,7 @@ ics:
     listing_template: listing-ic.twig
     listing_records: 10
     default_status: publish
-    sort: datepublish
+    sort: titulo
     recordsperpage: 20
     
 config:
